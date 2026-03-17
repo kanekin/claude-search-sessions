@@ -21,13 +21,17 @@ Search `~/.claude/history.jsonl` for past conversations by keyword.
    - `-i`: true (case-insensitive)
    - head_limit: 50 (avoid flooding context on large histories)
 
-2. Each matching line is a JSON object with fields: `sessionId`, `timestamp`, `display`.
+2. Each matching line is a JSON object with fields: `sessionId`, `timestamp`, `display`, **and `project`**.
+   - **CRITICAL:** Many lines will show as `[Omitted long matching line]` in Grep output, hiding the `project` field. You MUST extract the `project` from at least one visible line per sessionId. If all lines for a session are omitted, use a follow-up Grep with `sessionId` as the pattern to find a readable line.
 
 3. Parse the matching lines and present results grouped by `sessionId`:
    - Convert `timestamp` (ms since epoch) to human-readable date
    - Show first ~100 chars of `display` for each match (up to 3 per session)
+   - **Include the `project` directory for each session** (e.g., `/Users/.../tebi1`)
    - Number each session (1, 2, 3...) for easy selection
    - End with: "Which session would you like to resume? (number or session ID)"
+
+4. **You MUST remember the `project` path for each session.** You will need it in the resume step below. If you lose it, the resume will fail.
 
 ## Resuming a Session
 
