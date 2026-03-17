@@ -8,7 +8,7 @@
       "name": "claude-search-sessions",
       "source": "./",
       "description": "Search past Claude Code conversations by keyword",
-      "version": "1.0.0"
+      "version": "1.1.0"
     }
   ]
 }
