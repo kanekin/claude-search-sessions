@@ -6,7 +6,7 @@
   "plugins": [
     {
       "name": "claude-search-sessions",
-      "source": ".",
+      "source": "./",
       "description": "Search past Claude Code conversations by keyword",
       "version": "1.0.0"
     }
