@@ -1,5 +1,8 @@
 {
   "name": "claude-search-sessions",
+  "owner": {
+    "name": "kanekin"
+  },
   "plugins": [
     {
       "name": "claude-search-sessions",
